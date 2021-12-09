@@ -3,6 +3,10 @@ from bs4 import BeautifulSoup
 import telebot
 from telebot import types
 bot = telebot.TeleBot("5055186869:AAF0c3BQ42BPcfQsbDzqpYurK_IolxAfdqE", parse_mode=None) # You can set parse_mode by default. HTML or MARKDOWN
+@bot.message_handler(commands=['start'])
+def start(message):
+    start_text = 'Hello. You can easily find pictures from google for free on this bot. Made by @shavkatNor'
+    bot.send_message(message.chat.id,start_text)
 @bot.message_handler(func=lambda message: True)
 def echo_all(message):
     try:
